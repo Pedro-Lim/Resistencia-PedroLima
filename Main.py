@@ -1,6 +1,7 @@
 from Jedi import Jedi
 from Nave import Nave
 from Membro import Membro
+
 def print_parametros(classe1, classe2 = None):
     index = vars(classe1)
     for item in index:
@@ -15,7 +16,16 @@ def print_parametros(classe1, classe2 = None):
             print("Sem nave cadastrada")
             break
         print(item, ":", index[item])
-    
+
+def cadastro_nave():
+    nome_nave = input("Informe o nome da nava: ")
+    fabricante = input("informe o fabricante da nave: ")
+    quantidade_tripulacao = input("Informe a quantidade da tripulação:")
+    modelo = input("Informe o modelo da nave:")
+    classe = input("informe o classe da nave: ")
+    newNave = Nave(nome_nave, fabricante, quantidade_tripulacao, modelo, classe)
+    return(newNave)
+
 
 print("Bem vindo ao sistema de cadastro da resistencia!!")
 print("Gostaria de cadastra um membro, um jedi ou uma nave?")
@@ -27,12 +37,7 @@ if escolha.lower() == "membro":
     possui_nave = input("Informe se o membro possui uma nave, (s) ou (n):")
 
     if possui_nave.lower() == "s":
-        nome_nave = input("Informe o nome da nava: ")
-        fabricante = input("informe o fabricante da nave: ")
-        quantidade_tripulacao = input("Informe a quantidade da tripulação:")
-        modelo = input("Informe o modelo da nave:")
-        classe = input("informe o classe da nave: ")
-        newNave = Nave(nome_nave, fabricante, quantidade_tripulacao, modelo, classe)
+        newNave = cadastro_nave()
         newMembro = Membro(nome, especie, cargo, newNave)
         print("{} Cadastrado com sucesso!!".format(escolha.lower()))
         print_parametros(newMembro, newNave)
@@ -50,12 +55,7 @@ elif escolha.lower() == "jedi":
     possui_nave = input("Informe se o jedi possui uma nave, (s) ou (n):")
 
     if possui_nave.lower() == "s":
-        nome_nave = input("Informe o nome da nava: ")
-        fabricante = input("informe o fabricante da nave: ")
-        quantidade_tripulacao = input("Informe a quantidade da tripulação:")
-        modelo = input("Informe o modelo da nave:")
-        classe = input("informe o classe da nave: ")
-        newNave = Nave(nome_nave, fabricante, quantidade_tripulacao, modelo, classe)
+        newNave = cadastro_nave()
         newJedi = Jedi(nome, grau, especie, cor_sabre, newNave)
         print("{} Cadastrado com sucesso!!".format(escolha.lower()))
         print_parametros(newJedi, newNave)
@@ -65,14 +65,10 @@ elif escolha.lower() == "jedi":
         print_parametros(newJedi)
 
 elif escolha.lower() == "nave":
-    nome_nave = input("Informe o nome da nava: ")
-    fabricante = input("informe o fabricante da nave: ")
-    quantidade_tripulacao = input("Informe a quantidade da tripulação:")
-    modelo = input("Informe o modelo da nave:")
-    classe = input("informe o classe da nave: ")
-    newNave = Nave(nome_nave, fabricante, quantidade_tripulacao, modelo, classe)
+    newNave = cadastro_nave()
     print("{} Cadastrado com sucesso!!".format(escolha.lower()))
     print_parametros(newNave)
+
 else:
     print("Opção invalida")
 
