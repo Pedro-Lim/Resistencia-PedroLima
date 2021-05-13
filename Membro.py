@@ -47,7 +47,7 @@ class Membro:
     
     @nave.setter
     def nave(self, nova_nave):
-        if str(type(self._nave)) != "<class 'Nave.Nave'>":
+        if str(type(nova_nave)) != "<class 'Nave.Nave'>":
             print("parametro não compativel. Espera-se uma variavel do tipo classe")
 
         else:

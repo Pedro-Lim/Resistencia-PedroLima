@@ -18,7 +18,7 @@ def print_parametros(classe1, classe2 = None):
         print(item, ":", index[item])
 
 def cadastro_nave():
-    nome_nave = input("Informe o nome da nava: ")
+    nome_nave = input("Informe o nome da nave: ")
     fabricante = input("informe o fabricante da nave: ")
     quantidade_tripulacao = input("Informe a quantidade da tripulação:")
     modelo = input("Informe o modelo da nave:")
