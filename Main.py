@@ -5,14 +5,14 @@ from Membro import Membro
 def print_parametros(classe1, classe2 = None):
     index = vars(classe1)
     for item in index:
-        if item == "nave" and index[item] != None:
+        if item == "_nave" and index[item] != None:
             print(">>>>>>>>>>>>>>>>>>>>>>>")
             print("Informações da nave:")
             index = vars(classe2)
             for item in index:
                 print(item, ":", index[item])
             break
-        elif item == "nave" and index[item] == None:
+        elif item == "_nave" and index[item] == None:
             print("Sem nave cadastrada")
             break
         print(item, ":", index[item])
