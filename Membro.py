@@ -1,54 +1,64 @@
+from Nave import Nave
+
+
 class Membro:
-    def __init__(self, nome, especie, cargo, nave = None):
-        self._nome = nome
-        self._especie = especie
-        self._cargo = cargo
-        self._nave = nave
-    
+    def __init__(self, nome, especie, cargo, possui_nave = False, nave = None):
+        self.__nome = nome
+        self.__especie = especie
+        self.__cargo = cargo
+        self.__nave = nave
+        self.__possui_nave = possui_nave
 
     @property
     def nome(self):
-        return "Nome do Membro:" + self._nome
-
+        return "Nome do Membro: " + self.__nome
     @nome.setter
     def nome(self, novo_nome):
         if novo_nome != "":
-            self._nome = novo_nome
+            self.__nome = novo_nome
         else:
             print("Não é permitido valor vazio")
     
 
     @property
     def especie(self):
-        return "especie do Membro:" + self._especie
-
+        return "Especie do Membro: " + self.__especie
     @especie.setter
     def especie(self, novo_especie):
         if novo_especie != "":
-            self._especie = novo_especie
+            self.__especie = novo_especie
         else:
             print("Não é permitido valor vazio")
             
 
     @property
     def cargo(self):
-        return "cargo do Membro:" + self._cargo
-
+        return "Cargo do Membro: " + self.__cargo
     @cargo.setter
     def cargo(self, novo_cargo):
         if novo_cargo != "":
-            self._cargo = novo_cargo
+            self.__cargo = novo_cargo
         else:
             print("Não é permitido valor vazio")
 
     @property
+    def possui_nave(self):
+        return "Possui nave: " + self.__possui_nave
+    @possui_nave.setter
+    def possui_nave(self, novo_possui_nave):
+        if type(novo_possui_nave) == bool:
+            self.__possui_nave = novo_possui_nave
+        else:
+            print("So é permitido valor booleano(True ou False)")
+
+
+    @property
     def nave(self):
-        return
-    
+        return "Nave :" + self.__nave 
     @nave.setter
     def nave(self, nova_nave):
-        if str(type(nova_nave)) != "<class 'Nave.Nave'>":
-            print("parametro não compativel. Espera-se uma variavel do tipo classe")
+        if type(nova_nave) != Nave:
+            print("parametro não compativel. Esperava-se uma variavel do tipo Nave")
 
         else:
-            self._nave = nova_nave
+            self.__nave = nova_nave
