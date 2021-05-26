@@ -1,6 +1,3 @@
-from Nave import Nave
-
-
 class Jedi:
     def __init__(self, nome, grau, especie, cor_sabre, possui_nave = False,  nave = None):
         self.__nome = nome
@@ -72,7 +69,7 @@ class Jedi:
         return "Nave : " + self.__nave    
     @nave.setter
     def nave(self, nova_nave):
-        if type(nova_nave) != Nave:
+        if str(type(nova_nave)) != "<class 'Nave.Nave'>":
             print("parametro não compativel. Esperava-se uma variavel do tipo Nave")
         else:
             self.__nave = nova_nave
