@@ -1,7 +1,3 @@
-from Jedi import Jedi
-from Membro import Membro
-
-
 class Nave:
     def  __init__(self, nome, fabricante, quantidade_tripulacao, modelo, classe, capitao, tripulacao = []):
         self.__nome = nome
@@ -87,7 +83,7 @@ class Nave:
         return "capitâo : " + self.__capitao    
     @capitao.setter
     def capitao(self, novo_capitao):
-        if type(novo_capitao) != Membro or type(novo_capitao) != Jedi :
+        if str(type(novo_capitao)) != "<class 'Jedi.Jedi'>" or str(type(novo_capitao)) !="<class 'Membro.Membro'>" :
             print("parametro não compativel. Esperava-se uma variavel do tipo Membro ou Jedi")
         else:
             self.__capitao = novo_capitao
